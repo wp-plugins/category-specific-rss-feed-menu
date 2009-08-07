@@ -3,8 +3,8 @@ Contributors: Ruhul Amin
 Donate link: http://www.tipsandtricks-hq.com/?p=319
 Tags: Category Specific RSS, Wordpress, WordPress Plugin,
 Requires at least: 1.5
-Tested up to: 2.6.5
-Stable tag: 4.3
+Tested up to: 2.8.3
+Stable tag: 1.2
 
 Wordpress plugin to add Category Specific RSS feed subscription menu to your posts, pages and sidebar.
 

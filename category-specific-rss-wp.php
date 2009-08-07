@@ -2,10 +2,10 @@
 
 /*
 Plugin Name: Category Specific RSS Menu
-Version: v1.0
+Version: v1.2
 Plugin URI: http://www.tipsandtricks-hq.com/?p=325
 Author: Ruhul Amin
-Author URI: http://www.antique-hq.com/
+Author URI: http://www.tipsandtricks-hq.com/
 Plugin Description: A simple Wordpress plugin to add category specific RSS subscription menu into your posts, pages, sidebars.
 */
 
@@ -20,11 +20,25 @@ Plugin Description: A simple Wordpress plugin to add category specific RSS subsc
     GNU General Public License for more details.
 */
 
-$category_specific_rss_version = 1.0;
+$siteurl = get_bloginfo('wpurl');
+define('CAT_SPEC_RSS_FOLDER', dirname(plugin_basename(__FILE__)));
+define('CAT_SPEC_RSS_URL', get_option('siteurl').'/wp-content/plugins/' . CAT_SPEC_RSS_FOLDER);
+
+$category_specific_rss_version = 1.2;
 
 add_option('rss_category_1_name', 'All Topics');
 add_option('rss_category_1_link', 'http://www.tipsandtricks-hq.com/?feed=rss2');
 add_option('rss_widget_title_name', 'Category Specific RSS');
+add_option('cat_rss_all_cat', '1');
+
+function show_category_rss_for_all_cats()
+{		
+		$output .= '<ul>';
+		$rss_image = CAT_SPEC_RSS_URL.'/rss_small_icon.png';
+		$output .= wp_list_cats('sort_column=name&feed_image='.$rss_image.'');
+		$output .= '</ul>';	
+		return $output;
+}
 
 function show_cat_specific_rss_menu()
 {
@@ -52,50 +66,60 @@ function show_cat_specific_rss_menu()
     $rss_cat_8_name_value = get_option('rss_category_8_name');
     $rss_cat_8_link_value = get_option('rss_category_8_link');
 
-    if(!empty($rss_cat_1_name_value) && !empty($rss_cat_1_link_value))
-    {
-        $output .= "<img src=\"/wp-content/plugins/Category-specific-rss-wp/rss_icon_2.png\" alt=\"\" />";
-        $output .= " <a href=\"$rss_cat_1_link_value\">$rss_cat_1_name_value</a><br />";
-    }
-
-    if(!empty($rss_cat_2_name_value) && !empty($rss_cat_2_link_value))
-    {
-        $output .= "<img src=\"/wp-content/plugins/Category-specific-rss-wp/rss_icon_2.png\" alt=\"\" />";
-        $output .= " <a href=\"$rss_cat_2_link_value\">$rss_cat_2_name_value</a><br />";
-    }
-
-    if(!empty($rss_cat_3_name_value) && !empty($rss_cat_3_link_value))
-    {
-        $output .= "<img src=\"/wp-content/plugins/Category-specific-rss-wp/rss_icon_2.png\" alt=\"\" />";
-        $output .= " <a href=\"$rss_cat_3_link_value\">$rss_cat_3_name_value</a><br />";
-    }
-    if(!empty($rss_cat_4_name_value) && !empty($rss_cat_4_link_value))
-    {
-        $output .= "<img src=\"/wp-content/plugins/Category-specific-rss-wp/rss_icon_2.png\" alt=\"\" />";
-        $output .= " <a href=\"$rss_cat_4_link_value\">$rss_cat_4_name_value</a><br />";
-    }
-    if(!empty($rss_cat_5_name_value) && !empty($rss_cat_5_link_value))
-    {
-        $output .= "<img src=\"/wp-content/plugins/Category-specific-rss-wp/rss_icon_2.png\" alt=\"\" />";
-        $output .= " <a href=\"$rss_cat_5_link_value\">$rss_cat_5_name_value</a><br />";
-    }
-    if(!empty($rss_cat_6_name_value) && !empty($rss_cat_6_link_value))
-    {
-        $output .= "<img src=\"/wp-content/plugins/Category-specific-rss-wp/rss_icon_2.png\" alt=\"\" />";
-        $output .= " <a href=\"$rss_cat_6_link_value\">$rss_cat_6_name_value</a><br />";
-    }
-    if(!empty($rss_cat_7_name_value) && !empty($rss_cat_7_link_value))
-    {
-        $output .= "<img src=\"/wp-content/plugins/Category-specific-rss-wp/rss_icon_2.png\" alt=\"\" />";
-        $output .= " <a href=\"$rss_cat_7_link_value\">$rss_cat_7_name_value</a><br />";
-    }
-    if(!empty($rss_cat_8_name_value) && !empty($rss_cat_8_link_value))
-    {
-        $output .= "<img src=\"/wp-content/plugins/Category-specific-rss-wp/rss_icon_2.png\" alt=\"\" />";
-        $output .= " <a href=\"$rss_cat_8_link_value\">$rss_cat_8_name_value</a><br />";
-    }
-    $output .= 'by <a href="http://www.tipsandtricks-hq.com/?p=319">Tips and Tricks</a><br /><br />';
-    return $output;
+	$show_all_cat = get_option('cat_rss_all_cat');
+	if ($show_all_cat == '1')
+	{
+		// Display Categories and RSS feed for all categories
+		$output .= show_category_rss_for_all_cats();
+	}
+	else
+	{
+		// Display configured categories and their RSS menu
+	    if(!empty($rss_cat_1_name_value) && !empty($rss_cat_1_link_value))
+	    {
+	        $output .= "<img src=\"/wp-content/plugins/Category-specific-rss-wp/rss_icon_2.png\" alt=\"\" />";
+	        $output .= " <a href=\"$rss_cat_1_link_value\">$rss_cat_1_name_value</a><br />";
+	    }
+	
+	    if(!empty($rss_cat_2_name_value) && !empty($rss_cat_2_link_value))
+	    {
+	        $output .= "<img src=\"/wp-content/plugins/Category-specific-rss-wp/rss_icon_2.png\" alt=\"\" />";
+	        $output .= " <a href=\"$rss_cat_2_link_value\">$rss_cat_2_name_value</a><br />";
+	    }
+	
+	    if(!empty($rss_cat_3_name_value) && !empty($rss_cat_3_link_value))
+	    {
+	        $output .= "<img src=\"/wp-content/plugins/Category-specific-rss-wp/rss_icon_2.png\" alt=\"\" />";
+	        $output .= " <a href=\"$rss_cat_3_link_value\">$rss_cat_3_name_value</a><br />";
+	    }
+	    if(!empty($rss_cat_4_name_value) && !empty($rss_cat_4_link_value))
+	    {
+	        $output .= "<img src=\"/wp-content/plugins/Category-specific-rss-wp/rss_icon_2.png\" alt=\"\" />";
+	        $output .= " <a href=\"$rss_cat_4_link_value\">$rss_cat_4_name_value</a><br />";
+	    }
+	    if(!empty($rss_cat_5_name_value) && !empty($rss_cat_5_link_value))
+	    {
+	        $output .= "<img src=\"/wp-content/plugins/Category-specific-rss-wp/rss_icon_2.png\" alt=\"\" />";
+	        $output .= " <a href=\"$rss_cat_5_link_value\">$rss_cat_5_name_value</a><br />";
+	    }
+	    if(!empty($rss_cat_6_name_value) && !empty($rss_cat_6_link_value))
+	    {
+	        $output .= "<img src=\"/wp-content/plugins/Category-specific-rss-wp/rss_icon_2.png\" alt=\"\" />";
+	        $output .= " <a href=\"$rss_cat_6_link_value\">$rss_cat_6_name_value</a><br />";
+	    }
+	    if(!empty($rss_cat_7_name_value) && !empty($rss_cat_7_link_value))
+	    {
+	        $output .= "<img src=\"/wp-content/plugins/Category-specific-rss-wp/rss_icon_2.png\" alt=\"\" />";
+	        $output .= " <a href=\"$rss_cat_7_link_value\">$rss_cat_7_name_value</a><br />";
+	    }
+	    if(!empty($rss_cat_8_name_value) && !empty($rss_cat_8_link_value))
+	    {
+	        $output .= "<img src=\"/wp-content/plugins/Category-specific-rss-wp/rss_icon_2.png\" alt=\"\" />";
+	        $output .= " <a href=\"$rss_cat_8_link_value\">$rss_cat_8_name_value</a><br />";
+	    }
+	}
+	$output .= 'by <a href="http://www.tipsandtricks-hq.com/?p=319">Tips and Tricks</a><br /><br />';
+	return $output;	
 }
 
 function category_specific_rss_process($content)
@@ -124,6 +148,8 @@ function category_specific_option_page() {
         echo '<div id="message" class="updated fade"><p><strong>';
 
         update_option('rss_widget_title_name', (string)$_POST["rss_widget_title_name"]);
+        
+        update_option('cat_rss_all_cat', ($_POST['cat_rss_all_cat']=='1') ? '1':'-1' );
 
         update_option('rss_category_1_name', (string)$_POST["rss_category_1_name"]);
         update_option('rss_category_1_link', (string)$_POST["rss_category_1_link"]);
@@ -180,10 +206,16 @@ function category_specific_option_page() {
     <legend><strong>Category Specific RSS Menu Options</strong></legend><br />
     <strong>Category Specific RSS Widget Title</strong>
         <input name="rss_widget_title_name" type="text" size="30" value="<?php echo get_option('rss_widget_title_name'); ?>"/>
-    <br />
+    <br /><br />
 
+
+    <strong>Show Category RSS for All Categories :</strong>
+    <input name="cat_rss_all_cat" type="checkbox"<?php if(get_option('cat_rss_all_cat')!='-1') echo ' checked="checked"'; ?> value="1"/>
+	<i> If ticked the plugin will display category specific RSS for all categories and ignore the options below.</i>
+	<br /><br />
+	
     <table width="100%" border="0" cellspacing="0" cellpadding="6">
-
+	
     <tr valign="top"><td width="15%" align="left">
     <strong>Category 1 Name: </strong>
     </td><td align="left">
@@ -256,13 +288,15 @@ function category_specific_option_page() {
     </div><?php
 }
 
-function show_category_rss_widget()
+function show_category_rss_widget($args)
 {
+    extract($args);
     $rss_widget_title_name_value = get_option('rss_widget_title_name');
-    echo '<h2>';
-    echo $rss_widget_title_name_value;
-    echo '</h2><br />';
+    
+    echo $before_widget;
+    echo $before_title . $rss_widget_title_name_value . $after_title;
     echo show_cat_specific_rss_menu();
+    echo $after_widget;
 }
 
 function category_rss_widget_control()
