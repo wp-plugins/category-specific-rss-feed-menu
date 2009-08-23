@@ -2,7 +2,7 @@
 
 /*
 Plugin Name: Category Specific RSS Menu
-Version: v1.2
+Version: v1.3
 Plugin URI: http://www.tipsandtricks-hq.com/?p=325
 Author: Ruhul Amin
 Author URI: http://www.tipsandtricks-hq.com/
@@ -24,7 +24,7 @@ $siteurl = get_bloginfo('wpurl');
 define('CAT_SPEC_RSS_FOLDER', dirname(plugin_basename(__FILE__)));
 define('CAT_SPEC_RSS_URL', get_option('siteurl').'/wp-content/plugins/' . CAT_SPEC_RSS_FOLDER);
 
-$category_specific_rss_version = 1.2;
+$category_specific_rss_version = 1.3;
 
 add_option('rss_category_1_name', 'All Topics');
 add_option('rss_category_1_link', 'http://www.tipsandtricks-hq.com/?feed=rss2');
@@ -33,11 +33,11 @@ add_option('cat_rss_all_cat', '1');
 
 function show_category_rss_for_all_cats()
 {		
-		$output .= '<ul>';
-		$rss_image = CAT_SPEC_RSS_URL.'/rss_small_icon.png';
-		$output .= wp_list_cats('sort_column=name&feed_image='.$rss_image.'');
-		$output .= '</ul>';	
-		return $output;
+	$rss_image = CAT_SPEC_RSS_URL.'/rss_small_icon.png';
+	echo '<ul>';		
+	echo wp_list_categories('orderby=name&feed_image='.$rss_image.'&title_li=');		
+	echo '</ul>';	
+	return $output;
 }
 
 function show_cat_specific_rss_menu()
