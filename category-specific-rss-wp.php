@@ -1,8 +1,7 @@
 <?php
-
 /*
 Plugin Name: Category Specific RSS Menu
-Version: v1.4
+Version: v1.5
 Plugin URI: http://www.tipsandtricks-hq.com/?p=325
 Author: Ruhul Amin
 Author URI: http://www.tipsandtricks-hq.com/
@@ -24,7 +23,7 @@ $siteurl = get_bloginfo('wpurl');
 define('CAT_SPEC_RSS_FOLDER', dirname(plugin_basename(__FILE__)));
 define('CAT_SPEC_RSS_URL', get_option('siteurl').'/wp-content/plugins/' . CAT_SPEC_RSS_FOLDER);
 
-$category_specific_rss_version = 1.4;
+$category_specific_rss_version = 1.5;
 
 add_option('rss_category_1_name', 'All Topics');
 add_option('rss_category_1_link', 'http://www.tipsandtricks-hq.com/?feed=rss2');
@@ -49,7 +48,13 @@ function show_category_rss_for_all_cats()
 		$customcats =  get_categories();
 		foreach($customcats as $customcat)
 		{
-			$customcatlist .= '<li><a title="Subscribe to the '.$customcat->name.' feed" href="'.get_bloginfo('url').'/category/'.$customcat->category_nicename.'/feed/"><img src="'.$rss_image.'" alt="feed" /></a><a href="'.get_bloginfo('url').'/category/'.$customcat->category_nicename.'">'.$customcat->name.'</a> ('.$customcat->count.')</li>';
+			$customcatlist .= '<li><a title="Subscribe to the '.$customcat->name.' feed" href="'.get_bloginfo('url').'/category/'.$customcat->category_nicename.'/feed/"><img src="'.$rss_image.'" alt="feed" /></a><a href="'.get_bloginfo('url').'/category/'.$customcat->category_nicename.'">'.$customcat->name.'</a>';
+			//$customcatlist .= '<li><a title="Subscribe to the '.$customcat->name.' feed" href="'.get_bloginfo('url').'/category/'.$customcat->category_nicename.'/feed/"><img src="'.$rss_image.'" alt="feed" /></a><a href="'.get_bloginfo('url').'/category/'.$customcat->category_nicename.'/feed/">'.$customcat->name.'</a>';
+			if(get_option('cat_rss_show_post_count') == '1')
+			{
+				$customcatlist .= ' ('.$customcat->count.')';
+			}
+			$customcatlist .= '</li>';
 		}
 		$output .= $customcatlist;
 		$output .= '</ul>';
