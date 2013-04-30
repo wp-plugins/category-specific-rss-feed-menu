@@ -1,10 +1,10 @@
 === Category Specific RSS feed Subscription ===
 Contributors: Ruhul Amin, Tips and Tricks HQ
-Donate link: http://www.tipsandtricks-hq.com/?p=319
-Tags: Category Specific RSS, Wordpress category feed, custom category feed, WordPress Plugin
+Donate link: http://www.tipsandtricks-hq.com/development-center
+Tags: Category Specific RSS, Wordpress category feed, custom category feed, WordPress Plugin, feed, category, rss feed, category feed, list category 
 Requires at least: 3.0
-Tested up to: 3.4.1
-Stable tag: 1.5
+Tested up to: 3.6
+Stable tag: 1.6
 License: GPLv2 or later
 
 Wordpress plugin to add Category Specific RSS feed subscription menu to your posts, pages and sidebar.
@@ -19,16 +19,15 @@ I found that most of the time I never subscribe to a site's RSS feed when it doe
 
 This plugin allows you to show category specific RSS feed for all your categories. Alternatively, you can configure up to 8 different custom topic specific RSS feeds.
 
-For information and updates, please visit:
-http://www.tipsandtricks-hq.com/?p=325
+For information and updates, please visit the [Category specific rss feed plugin](http://www.tipsandtricks-hq.com/wordpress-plugin-for-category-specific-rss-feed-subscription-menu-325)
 
 == Usage ==
 
 There are three ways you can use this plugin:
 
    1. Add the Category Specific RSS Widget to your sidebar from the Widget menu
-   2. Add the trigger text [category_specific_rss_menu] to your posts or pages
-   3. Call the function from template files: <?php echo show_cat_specific_rss_menu(); ?>
+   2. Add the shortcode [category_specific_rss_menu] to your posts or pages
+   3. Call the function from template files: &lt;?php echo show_cat_specific_rss_menu(); ?&gt;
 
 == Installation ==
 
@@ -46,4 +45,4 @@ Check out this Plugin in action at http://www.tipsandtricks-hq.com on the sideba
 == Changelog ==
 
 Changelog can be found at the following URL
-http://www.tipsandtricks-hq.com/?p=325
+http://www.tipsandtricks-hq.com/wordpress-plugin-for-category-specific-rss-feed-subscription-menu-325

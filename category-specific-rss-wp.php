@@ -1,29 +1,19 @@
 <?php
 /*
 Plugin Name: Category Specific RSS Menu
-Version: v1.5
-Plugin URI: http://www.tipsandtricks-hq.com/?p=325
-Author: Ruhul Amin
+Version: v1.6
+Plugin URI: http://www.tipsandtricks-hq.com/wordpress-plugin-for-category-specific-rss-feed-subscription-menu-325
+Author: Tips and Tricks HQ, Ruhul Amin
 Author URI: http://www.tipsandtricks-hq.com/
-Plugin Description: A simple Wordpress plugin to add category specific RSS subscription menu into your posts, pages, sidebars.
-*/
-
-/*
-    This program is free software; you can redistribute it
-    under the terms of the GNU General Public License version 2,
-    as published by the Free Software Foundation.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+Description: A simple Wordpress plugin to add category specific RSS subscription menu into your posts, pages, sidebars.
+License: GPLv2 or later
 */
 
 $siteurl = get_bloginfo('wpurl');
 define('CAT_SPEC_RSS_FOLDER', dirname(plugin_basename(__FILE__)));
 define('CAT_SPEC_RSS_URL', get_option('siteurl').'/wp-content/plugins/' . CAT_SPEC_RSS_FOLDER);
 
-$category_specific_rss_version = 1.5;
+$category_specific_rss_version = 1.6;
 
 add_option('rss_category_1_name', 'All Topics');
 add_option('rss_category_1_link', 'http://www.tipsandtricks-hq.com/?feed=rss2');
@@ -89,7 +79,6 @@ function show_cat_specific_rss_menu()
 		$output .= show_specific_categories();
 
 	}
-	$output .= '<div class="cat_specific_rss_link">by <a href="http://www.tipsandtricks-hq.com/?p=319" target="_blank">Tips and Tricks</a></div>';
 	return $output;	
 }
 
@@ -180,7 +169,7 @@ function category_specific_rss_process($content)
 // Displays Category Specific RSS Options menu
 function add_category_specific_rss_option_page() {
     if (function_exists('add_options_page')) {
-        add_options_page('Category Specific RSS', 'Category Specific RSS', 8, __FILE__, 'category_specific_option_page');
+        add_options_page('Category Specific RSS', 'Category Specific RSS', 'manage_options', __FILE__, 'category_specific_option_page');
     }
 }
 
@@ -234,7 +223,7 @@ function category_specific_option_page() {
     <h2>Category Specific RSS Menu v <?php echo $category_specific_rss_version; ?></h2>
 
     <p>For information and updates, please visit the plugin page:<br />
-    <a href="http://www.tipsandtricks-hq.com/?p=325" target="_blank">http://www.tipsandtricks-hq.com</a></p>
+    <a href="http://www.tipsandtricks-hq.com/wordpress-plugin-for-category-specific-rss-feed-subscription-menu-325" target="_blank">http://www.tipsandtricks-hq.com</a></p>
 
     <form method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
     <input type="hidden" name="info_update" id="info_update" value="true" />
@@ -388,4 +377,3 @@ add_action('wp_head', 'wp_category_specific_rss_head_content');
 add_action('admin_menu', 'add_category_specific_rss_option_page');
 
 add_shortcode('category_specific_rss_menu', 'wp_category_specific_rss_handler');
-?>
