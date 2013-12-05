@@ -1,10 +1,10 @@
 === Category Specific RSS feed Subscription ===
 Contributors: Ruhul Amin, Tips and Tricks HQ
 Donate link: http://www.tipsandtricks-hq.com/development-center
-Tags: Category Specific RSS, Wordpress category feed, custom category feed, WordPress Plugin, feed, category, rss feed, category feed, list category 
+Tags: Category Specific RSS, Wordpress category feed, custom category feed, WordPress Plugin, feed, category, rss feed, category feed, list category
 Requires at least: 3.0
-Tested up to: 3.6
-Stable tag: 1.6
+Tested up to: 3.7
+Stable tag: 1.7
 License: GPLv2 or later
 
 Wordpress plugin to add Category Specific RSS feed subscription menu to your posts, pages and sidebar.
@@ -39,10 +39,12 @@ There are three ways you can use this plugin:
 == Frequently Asked Questions ==
 
 == Screenshots ==
-
-Check out this Plugin in action at http://www.tipsandtricks-hq.com on the sidebar
+Check out this Plugin in action at http://www.tipsandtricks-hq.com
 
 == Changelog ==
 
-Changelog can be found at the following URL
+= 1.7 =
+- WordPress 3.7 compatibility
+
+Changelog for old versions can be found at the following URL
 http://www.tipsandtricks-hq.com/wordpress-plugin-for-category-specific-rss-feed-subscription-menu-325
