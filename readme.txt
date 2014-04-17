@@ -1,10 +1,10 @@
 === Category Specific RSS feed Subscription ===
-Contributors: Ruhul Amin, Tips and Tricks HQ
+Contributors: Tips and Tricks HQ, Ruhul Amin
 Donate link: http://www.tipsandtricks-hq.com/development-center
-Tags: Category Specific RSS, Wordpress category feed, custom category feed, WordPress Plugin, feed, category, rss feed, category feed, list category
+Tags: Category Specific RSS, Wordpress category feed, custom category feed, WordPress Plugin, feed, category, rss feed, category feed, list category, tag, rss, rss2, tag cloud,
 Requires at least: 3.0
-Tested up to: 3.7
-Stable tag: 1.7
+Tested up to: 3.9
+Stable tag: 1.8
 License: GPLv2 or later
 
 Wordpress plugin to add Category Specific RSS feed subscription menu to your posts, pages and sidebar.
@@ -19,15 +19,23 @@ I found that most of the time I never subscribe to a site's RSS feed when it doe
 
 This plugin allows you to show category specific RSS feed for all your categories. Alternatively, you can configure up to 8 different custom topic specific RSS feeds.
 
-For information and updates, please visit the [Category specific rss feed plugin](http://www.tipsandtricks-hq.com/wordpress-plugin-for-category-specific-rss-feed-subscription-menu-325)
+= RSS Feed for Your Tags = 
+
+You can also create a tag specific RSS feed menu using this plugin. Create an rss feed menu for all of your tags on the blog using a simple shortcode.
+
+There is an option to create a tag cloud with RSS feed of each tag also.
+
+For information, updates and detailed documentation, please visit the [Category specific rss feed plugin](http://www.tipsandtricks-hq.com/wordpress-plugin-for-category-specific-rss-feed-subscription-menu-325) page.
 
 == Usage ==
 
 There are three ways you can use this plugin:
 
-   1. Add the Category Specific RSS Widget to your sidebar from the Widget menu
-   2. Add the shortcode [category_specific_rss_menu] to your posts or pages
-   3. Call the function from template files: &lt;?php echo show_cat_specific_rss_menu(); ?&gt;
+1. Add the Category Specific RSS Widget to your sidebar from the Widget menu
+2. Add the shortcode [category_specific_rss_menu] to your posts or pages
+3. Call the function from template files: &lt;?php echo show_cat_specific_rss_menu(); ?&gt;
+4. Use the [tag_specific_rss_menu] shortcode to your posts, pages, sidebar widget to add a tag specific rss feed menu
+5. Use the [tag_specific_rss_cloud] shortcode to your posts, pages, sidebar widget to add a tag cloud with rss feed of each tag
 
 == Installation ==
 
@@ -37,11 +45,20 @@ There are three ways you can use this plugin:
 4. Go to the Widgets menu and add the 'Category Specific RSS' widget to the sidebar or add the shortcode [category_specific_rss_menu] to a post or page where you want it to appear.
 
 == Frequently Asked Questions ==
+None
 
 == Screenshots ==
-Check out this Plugin in action at http://www.tipsandtricks-hq.com
+Check out this Plugin in action at http://www.tipsandtricks-hq.com/wordpress-plugin-for-category-specific-rss-feed-subscription-menu-325
+
+== Upgrade Notice ==
+None
 
 == Changelog ==
+
+= 1.8 =
+- Added a new tag specific rss feed option.
+- Added a new shortcode to show a tag cloud with RSS feed links of each tag.
+- WordPress 3.9 compatibility
 
 = 1.7 =
 - WordPress 3.7 compatibility

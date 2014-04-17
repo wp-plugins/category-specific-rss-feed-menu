@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Category Specific RSS Menu
-Version: v1.7
+Version: v1.8
 Plugin URI: http://www.tipsandtricks-hq.com/wordpress-plugin-for-category-specific-rss-feed-subscription-menu-325
 Author: Tips and Tricks HQ, Ruhul Amin
 Author URI: http://www.tipsandtricks-hq.com/
@@ -13,7 +13,9 @@ $siteurl = get_bloginfo('wpurl');
 define('CAT_SPEC_RSS_FOLDER', dirname(plugin_basename(__FILE__)));
 define('CAT_SPEC_RSS_URL', get_option('siteurl').'/wp-content/plugins/' . CAT_SPEC_RSS_FOLDER);
 
-$category_specific_rss_version = 1.7;
+$category_specific_rss_version = 1.8;
+
+include_once('csrss-misc-functions.php');
 
 add_option('rss_category_1_name', 'All Topics');
 add_option('rss_category_1_link', 'http://www.tipsandtricks-hq.com/?feed=rss2');
@@ -222,7 +224,7 @@ function category_specific_option_page() {
 
     <h2>Category Specific RSS Menu v <?php echo $category_specific_rss_version; ?></h2>
 
-    <p>For information and updates, please visit the plugin page:<br />
+    <p>For detailed documentation, information and updates, please visit the plugin page using the following link:<br />
     <a href="http://www.tipsandtricks-hq.com/wordpress-plugin-for-category-specific-rss-feed-subscription-menu-325" target="_blank">http://www.tipsandtricks-hq.com</a></p>
 
     <form method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
@@ -235,7 +237,7 @@ function category_specific_option_page() {
     <p>There are three ways you can use this plugin:</p>
     <ol>
     <li>Add the <strong>Category Specific RSS</strong> Widget to your sidebar from the Widget menu</li>
-    <li>Add the trigger text <strong>[category_specific_rss_menu]</strong> to your posts or pages</li>
+    <li>Add the shortcode <strong>[category_specific_rss_menu]</strong> to your posts or pages</li>
     <li>Call the function from template files: <strong>&lt;?php echo show_cat_specific_rss_menu(); ?&gt;</strong><br /></li>
     </ol>
     </div></div>
@@ -331,10 +333,15 @@ function category_specific_option_page() {
 	or http://www.tipsandtricks-hq.com/category/web-development/wordpress/feed
 	
     <div class="submit">
-        <input type="submit" name="info_update" value="<?php _e('Update options'); ?> &raquo;" />
+        <input type="submit" name="info_update" class="button-primary" value="<?php _e('Update options'); ?> &raquo;" />
     </div>
 
     </form>
+    
+    <div style="background: none repeat scroll 0 0 #FFF6D5;border: 1px solid #D1B655;color: #3F2502;margin: 10px 0;padding: 5px 5px 5px 10px;text-shadow: 1px 1px #FFFFFF;">	
+    <p>If you like this plugin then give it a <a href="http://wordpress.org/support/view/plugin-reviews/category-specific-rss-feed-menu" target="_blank">good rating</a></p>
+    </div>
+    
     </div></div>
     </div><?php
 }
@@ -377,3 +384,5 @@ add_action('wp_head', 'wp_category_specific_rss_head_content');
 add_action('admin_menu', 'add_category_specific_rss_option_page');
 
 add_shortcode('category_specific_rss_menu', 'wp_category_specific_rss_handler');
+add_shortcode('tag_specific_rss_menu', 'wp_tag_specific_rss_handler');
+add_shortcode('tag_specific_rss_cloud', 'wp_tag_specific_rss_cloud_handler');
