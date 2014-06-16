@@ -1,10 +1,10 @@
 === Category Specific RSS feed Subscription ===
 Contributors: Tips and Tricks HQ, Ruhul Amin
 Donate link: http://www.tipsandtricks-hq.com/development-center
-Tags: Category Specific RSS, Wordpress category feed, custom category feed, WordPress Plugin, feed, category, rss feed, category feed, list category, tag, rss, rss2, tag cloud,
+Tags: Category Specific RSS, Wordpress category feed, custom category feed, WordPress Plugin, feed, category, rss feed, category feed, list category, tag, rss, rss2, tag cloud, post tags,
 Requires at least: 3.0
 Tested up to: 3.9
-Stable tag: 1.8
+Stable tag: 1.9
 License: GPLv2 or later
 
 Wordpress plugin to add Category Specific RSS feed subscription menu to your posts, pages and sidebar.
@@ -25,7 +25,12 @@ You can also create a tag specific RSS feed menu using this plugin. Create an rs
 
 There is an option to create a tag cloud with RSS feed of each tag also.
 
+= Tag RSS Feeds for a Specific Post/Article =
+
+You can use this plugin to show the tags and the rss feed of each tag for a particular article. This is very helpful if you currently show the tags of an article/post.
+
 For information, updates and detailed documentation, please visit the [Category specific rss feed plugin](http://www.tipsandtricks-hq.com/wordpress-plugin-for-category-specific-rss-feed-subscription-menu-325) page.
+
 
 == Usage ==
 
@@ -54,6 +59,10 @@ Check out this Plugin in action at http://www.tipsandtricks-hq.com/wordpress-plu
 None
 
 == Changelog ==
+
+= 1.9 =
+- Added a new feature to display a list of post specific tag rss links. This will be handy if you want to show the tag rss for an individual post.
+- Added the option to show post count of the category when using the custom category option.
 
 = 1.8 =
 - Added a new tag specific rss feed option.

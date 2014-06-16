@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Category Specific RSS Menu
-Version: v1.8
+Version: v1.9
 Plugin URI: http://www.tipsandtricks-hq.com/wordpress-plugin-for-category-specific-rss-feed-subscription-menu-325
 Author: Tips and Tricks HQ, Ruhul Amin
 Author URI: http://www.tipsandtricks-hq.com/
@@ -13,7 +13,7 @@ $siteurl = get_bloginfo('wpurl');
 define('CAT_SPEC_RSS_FOLDER', dirname(plugin_basename(__FILE__)));
 define('CAT_SPEC_RSS_URL', get_option('siteurl').'/wp-content/plugins/' . CAT_SPEC_RSS_FOLDER);
 
-$category_specific_rss_version = 1.8;
+$category_specific_rss_version = 1.9;
 
 include_once('csrss-misc-functions.php');
 
@@ -86,6 +86,7 @@ function show_cat_specific_rss_menu()
 
 function show_specific_categories()
 {
+    $show_count = get_option('cat_rss_show_post_count');
 	$rss_image = CAT_SPEC_RSS_URL.'/rss_icon_2.png';
 	
     $rss_cat_1_name_value = get_option('rss_category_1_name');
@@ -115,45 +116,69 @@ function show_specific_categories()
 	// Display configured categories and their RSS menu
     if(!empty($rss_cat_1_name_value) && !empty($rss_cat_1_link_value))
     {
+        $cat_obj = get_term_by('name', $rss_cat_1_name_value, 'category');
         $output .= '<img src="'.$rss_image.'" alt="" />';
-        $output .= " <a href=\"$rss_cat_1_link_value\">$rss_cat_1_name_value</a><br />";
+        $output .= " <a href=\"$rss_cat_1_link_value\">$rss_cat_1_name_value</a>";
+        if($show_count == '1'){$output .= ' ('.$cat_obj->count.')';}
+        $output .= '<br />';
     }
 
     if(!empty($rss_cat_2_name_value) && !empty($rss_cat_2_link_value))
     {
+        $cat_obj = get_term_by('name', $rss_cat_2_name_value, 'category');
         $output .= '<img src="'.$rss_image.'" alt="" />';
-        $output .= " <a href=\"$rss_cat_2_link_value\">$rss_cat_2_name_value</a><br />";
+        $output .= " <a href=\"$rss_cat_2_link_value\">$rss_cat_2_name_value</a>";
+        if($show_count == '1'){$output .= ' ('.$cat_obj->count.')';}
+        $output .= '<br />';
     }
 
     if(!empty($rss_cat_3_name_value) && !empty($rss_cat_3_link_value))
     {
+        $cat_obj = get_term_by('name', $rss_cat_3_name_value, 'category');
         $output .= '<img src="'.$rss_image.'" alt="" />';
-        $output .= " <a href=\"$rss_cat_3_link_value\">$rss_cat_3_name_value</a><br />";
+        $output .= " <a href=\"$rss_cat_3_link_value\">$rss_cat_3_name_value</a>";
+        if($show_count == '1'){$output .= ' ('.$cat_obj->count.')';}
+        $output .= '<br />';
     }
     if(!empty($rss_cat_4_name_value) && !empty($rss_cat_4_link_value))
     {
+        $cat_obj = get_term_by('name', $rss_cat_4_name_value, 'category');
         $output .= '<img src="'.$rss_image.'" alt="" />';
-        $output .= " <a href=\"$rss_cat_4_link_value\">$rss_cat_4_name_value</a><br />";
+        $output .= " <a href=\"$rss_cat_4_link_value\">$rss_cat_4_name_value</a>";
+        if($show_count == '1'){$output .= ' ('.$cat_obj->count.')';}
+        $output .= '<br />';
     }
     if(!empty($rss_cat_5_name_value) && !empty($rss_cat_5_link_value))
     {
+        $cat_obj = get_term_by('name', $rss_cat_5_name_value, 'category');
         $output .= '<img src="'.$rss_image.'" alt="" />';
-        $output .= " <a href=\"$rss_cat_5_link_value\">$rss_cat_5_name_value</a><br />";
+        $output .= " <a href=\"$rss_cat_5_link_value\">$rss_cat_5_name_value</a>";
+        if($show_count == '1'){$output .= ' ('.$cat_obj->count.')';}
+        $output .= '<br />';
     }
     if(!empty($rss_cat_6_name_value) && !empty($rss_cat_6_link_value))
     {
+        $cat_obj = get_term_by('name', $rss_cat_6_name_value, 'category');
         $output .= '<img src="'.$rss_image.'" alt="" />';
-        $output .= " <a href=\"$rss_cat_6_link_value\">$rss_cat_6_name_value</a><br />";
+        $output .= " <a href=\"$rss_cat_6_link_value\">$rss_cat_6_name_value</a>";
+        if($show_count == '1'){$output .= ' ('.$cat_obj->count.')';}
+        $output .= '<br />';
     }
     if(!empty($rss_cat_7_name_value) && !empty($rss_cat_7_link_value))
     {
+        $cat_obj = get_term_by('name', $rss_cat_7_name_value, 'category');
         $output .= '<img src="'.$rss_image.'" alt="" />';
-        $output .= " <a href=\"$rss_cat_7_link_value\">$rss_cat_7_name_value</a><br />";
+        $output .= " <a href=\"$rss_cat_7_link_value\">$rss_cat_7_name_value</a>";
+        if($show_count == '1'){$output .= ' ('.$cat_obj->count.')';}
+        $output .= '<br />';
     }
     if(!empty($rss_cat_8_name_value) && !empty($rss_cat_8_link_value))
     {
+        $cat_obj = get_term_by('name', $rss_cat_8_name_value, 'category');
         $output .= '<img src="'.$rss_image.'" alt="" />';
-        $output .= " <a href=\"$rss_cat_8_link_value\">$rss_cat_8_name_value</a><br />";
+        $output .= " <a href=\"$rss_cat_8_link_value\">$rss_cat_8_name_value</a>";
+        if($show_count == '1'){$output .= ' ('.$cat_obj->count.')';}
+        $output .= '<br />';
     }	
 	return $output;
 }
@@ -386,3 +411,5 @@ add_action('admin_menu', 'add_category_specific_rss_option_page');
 add_shortcode('category_specific_rss_menu', 'wp_category_specific_rss_handler');
 add_shortcode('tag_specific_rss_menu', 'wp_tag_specific_rss_handler');
 add_shortcode('tag_specific_rss_cloud', 'wp_tag_specific_rss_cloud_handler');
+
+add_shortcode('post_specific_tag_rss', 'post_specific_tag_rss_handler');
