@@ -4,7 +4,7 @@ Donate link: https://www.tipsandtricks-hq.com/development-center
 Tags: Category Specific RSS, Wordpress category feed, custom category feed, WordPress Plugin, feed, category, rss feed, category feed, list category, tag, rss, rss2, tag cloud, post tags,
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 1.10
+Stable tag: 1.11
 License: GPLv2 or later
 
 Wordpress plugin to add Category Specific RSS feed subscription menu to your posts, pages and sidebar.
