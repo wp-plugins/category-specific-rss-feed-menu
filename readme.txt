@@ -31,7 +31,6 @@ You can use this plugin to show the tags and the rss feed of each tag for a part
 
 For information, updates and detailed documentation, please visit the [Category specific rss feed plugin](https://www.tipsandtricks-hq.com/wordpress-plugin-for-category-specific-rss-feed-subscription-menu-325) page.
 
-
 == Usage ==
 
 There are three ways you can use this plugin:
