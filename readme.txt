@@ -59,6 +59,9 @@ Make sure to visit the plugin settings and select the RSS feed options according
 
 == Changelog ==
 
+= 1.11 =
+- Fixed an error with the rss widget.
+
 = 1.10 =
 - RSS Menu Now has the option of Providing Author RSS links
 - RSS Menu Now has the option of supplying Custom RSS links while using Automatic Category and/or Author links
