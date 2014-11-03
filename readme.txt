@@ -1,10 +1,10 @@
 === Category Specific RSS feed Subscription ===
-Contributors: Tips and Tricks HQ, Ruhul Amin
-Donate link: http://www.tipsandtricks-hq.com/development-center
+Contributors: Tips and Tricks HQ, Ruhul Amin, drsassafras
+Donate link: https://www.tipsandtricks-hq.com/development-center
 Tags: Category Specific RSS, Wordpress category feed, custom category feed, WordPress Plugin, feed, category, rss feed, category feed, list category, tag, rss, rss2, tag cloud, post tags,
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 1.9
+Stable tag: 1.10
 License: GPLv2 or later
 
 Wordpress plugin to add Category Specific RSS feed subscription menu to your posts, pages and sidebar.
@@ -29,7 +29,7 @@ There is an option to create a tag cloud with RSS feed of each tag also.
 
 You can use this plugin to show the tags and the rss feed of each tag for a particular article. This is very helpful if you currently show the tags of an article/post.
 
-For information, updates and detailed documentation, please visit the [Category specific rss feed plugin](http://www.tipsandtricks-hq.com/wordpress-plugin-for-category-specific-rss-feed-subscription-menu-325) page.
+For information, updates and detailed documentation, please visit the [Category specific rss feed plugin](https://www.tipsandtricks-hq.com/wordpress-plugin-for-category-specific-rss-feed-subscription-menu-325) page.
 
 
 == Usage ==
@@ -53,12 +53,21 @@ There are three ways you can use this plugin:
 None
 
 == Screenshots ==
-Check out this Plugin in action at http://www.tipsandtricks-hq.com/wordpress-plugin-for-category-specific-rss-feed-subscription-menu-325
+Check out this Plugin in action at https://www.tipsandtricks-hq.com/wordpress-plugin-for-category-specific-rss-feed-subscription-menu-325
 
 == Upgrade Notice ==
-None
+Make sure to visit the plugin settings and select the RSS feed options accordingly after you update the plugin.
 
 == Changelog ==
+
+= 1.10 =
+- RSS Menu Now has the option of Providing Author RSS links
+- RSS Menu Now has the option of supplying Custom RSS links while using Automatic Category and/or Author links
+- Simplification of some code
+- Now removes empty brackets on Custom RSS links
+- RSS images now display uniformly, regardless of Option Chosen.
+- Losless Image compression reduces size of file and is now SEO friendly
+- Big Thank You to Brendan for making the above enhancements.
 
 = 1.9 =
 - Added a new feature to display a list of post specific tag rss links. This will be handy if you want to show the tag rss for an individual post.
