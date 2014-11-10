@@ -68,7 +68,7 @@ define('MAX_FILE_SIZE', 600000);
 // -----------------------------------------------------------------------------
 // get html dom from file
 // $maxlen is defined in the code as PHP_STREAM_COPY_ALL which is defined as -1.
-function file_get_html($url, $use_include_path = false, $context=null, $offset = -1, $maxLen=-1, $lowercase = true, $forceTagsClosed=true, $target_charset = DEFAULT_TARGET_CHARSET, $stripRN=true, $defaultBRText=DEFAULT_BR_TEXT, $defaultSpanText=DEFAULT_SPAN_TEXT)
+function csr_file_get_html($url, $use_include_path = false, $context=null, $offset = -1, $maxLen=-1, $lowercase = true, $forceTagsClosed=true, $target_charset = DEFAULT_TARGET_CHARSET, $stripRN=true, $defaultBRText=DEFAULT_BR_TEXT, $defaultSpanText=DEFAULT_SPAN_TEXT)
 {
 	// We DO force the tags to be terminated.
 	$dom = new simple_html_dom(null, $lowercase, $forceTagsClosed, $target_charset, $stripRN, $defaultBRText, $defaultSpanText);
@@ -86,7 +86,7 @@ function file_get_html($url, $use_include_path = false, $context=null, $offset =
 }
 
 // get html dom from string
-function str_get_html($str, $lowercase=true, $forceTagsClosed=true, $target_charset = DEFAULT_TARGET_CHARSET, $stripRN=true, $defaultBRText=DEFAULT_BR_TEXT, $defaultSpanText=DEFAULT_SPAN_TEXT)
+function csr_str_get_html($str, $lowercase=true, $forceTagsClosed=true, $target_charset = DEFAULT_TARGET_CHARSET, $stripRN=true, $defaultBRText=DEFAULT_BR_TEXT, $defaultSpanText=DEFAULT_SPAN_TEXT)
 {
 	$dom = new simple_html_dom(null, $lowercase, $forceTagsClosed, $target_charset, $stripRN, $defaultBRText, $defaultSpanText);
 	if (empty($str) || strlen($str) > MAX_FILE_SIZE)
@@ -99,7 +99,7 @@ function str_get_html($str, $lowercase=true, $forceTagsClosed=true, $target_char
 }
 
 // dump html dom tree
-function dump_html_tree($node, $show_attr=true, $deep=0)
+function csr_dump_html_tree($node, $show_attr=true, $deep=0)
 {
 	$node->dump($node);
 }
@@ -1730,13 +1730,11 @@ class simple_html_dom
 	function childNodes($idx=-1) {return $this->root->childNodes($idx);}
 	function firstChild() {return $this->root->first_child();}
 	function lastChild() {return $this->root->last_child();}
-	function createElement($name, $value=null) {return @str_get_html("<$name>$value</$name>")->first_child();}
-	function createTextNode($value) {return @end(str_get_html($value)->nodes);}
+	function createElement($name, $value=null) {return @csr_str_get_html("<$name>$value</$name>")->first_child();}
+	function createTextNode($value) {return @end(csr_str_get_html($value)->nodes);}
 	function getElementById($id) {return $this->find("#$id", 0);}
 	function getElementsById($id, $idx=null) {return $this->find("#$id", $idx);}
 	function getElementByTagName($name) {return $this->find($name, 0);}
 	function getElementsByTagName($name, $idx=-1) {return $this->find($name, $idx);}
 	function loadFile() {$args = func_get_args();$this->load_file($args);}
 }
-
-?>
