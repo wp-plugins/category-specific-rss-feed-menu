@@ -1,7 +1,7 @@
 <?php
 /*
   Plugin Name: Category Specific RSS Menu
-  Version: v1.12
+  Version: v1.13
   Plugin URI: https://www.tipsandtricks-hq.com/wordpress-plugin-for-category-specific-rss-feed-subscription-menu-325
   Author: Tips and Tricks HQ, Ruhul Amin
   Author URI: https://www.tipsandtricks-hq.com/
@@ -12,7 +12,7 @@
 define('CAT_SPEC_RSS_FOLDER', dirname(plugin_basename(__FILE__)));
 define('CAT_SPEC_RSS_URL', get_option('siteurl') . '/wp-content/plugins/' . CAT_SPEC_RSS_FOLDER);
 
-$category_specific_rss_version = 1.12;
+$category_specific_rss_version = 1.13;
 
 include_once('csrss-misc-functions.php');
 include_once('simple_html_dom.php');
