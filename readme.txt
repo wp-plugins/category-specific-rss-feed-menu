@@ -3,7 +3,7 @@ Contributors: Tips and Tricks HQ, Ruhul Amin, drsassafras
 Donate link: https://www.tipsandtricks-hq.com/development-center
 Tags: Category Specific RSS, Wordpress category feed, custom category feed, WordPress Plugin, feed, category, rss feed, category feed, list category, tag, rss, rss2, tag cloud, post tags,
 Requires at least: 3.0
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: 1.13
 License: GPLv2 or later
 
